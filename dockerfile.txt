@@ -1,0 +1,7 @@
+FROM php:8.2-apache
+
+# Copy semua file ke folder default Apache
+COPY public/ /var/www/html/
+
+# (Optional) Ubah permission atau install ekstensi PHP
+# RUN docker-php-ext-install mysqli pdo pdo_mysql
