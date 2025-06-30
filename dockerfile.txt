@@ -1,7 +1,8 @@
 FROM php:8.2-apache
-
-# Copy semua file ke folder default Apache
 COPY public/ /var/www/html/
-
-# (Optional) Ubah permission atau install ekstensi PHP
-# RUN docker-php-ext-install mysqli pdo pdo_mysql
+ENV PORT 8000
+RUN a2enmod rewrite
+EXPOSE $PORT
+CMD ["apache2-foreground"]
+EXPOSE 8000
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
